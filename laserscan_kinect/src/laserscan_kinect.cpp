@@ -23,6 +23,7 @@
 #include <list>
 #include <utility>
 #include <chrono>
+#include <iostream>
 
 #include "sensor_msgs/image_encodings.hpp"
 
@@ -336,6 +337,7 @@ void LaserScanKinect::convertDepthToPolarCoords(
 
   // Processing for specified columns from [left, right]
   auto process_columns = [&](size_t left, size_t right) {
+    std::cout << "Grabbing data " << std::endl;
       for (size_t i = left; i <= right; ++i) {
         const auto depth_min = getSmallestValueInColumn<T>(depth_msg, i);
         const auto range_in_polar = convert_to_polar(i, depth_min);
