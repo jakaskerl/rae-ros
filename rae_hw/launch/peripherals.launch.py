@@ -51,12 +51,6 @@ def launch_setup(context, *args, **kwargs):
                     plugin='rae_hw::SpeakersNode',
                 ),
             ]),
-
-        Node(
-            package='rae_bringup',
-            executable='battery_status.py',
-            condition=IfCondition(enable_battery_status)
-        ),
     ]
 
 
